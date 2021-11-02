@@ -1,13 +1,223 @@
+html {
+  scroll-behavior: smooth;
+  font-family: "Arial", sans-serif;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 16px;
+}
+html,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  width: 100% !important;
+  height: 100%;
+  overflow: hidden !important;
+}
+.scroll-pane-container {
+  position: relative;
+}
+main {
+  width: inherit;
+  height: inherit;
+  width: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #1298D8;
+  color: #262F26;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*start with the cellphone size -Vertical*/
+@media (min-width: 0px) {
+  main > div {
+    width: 100%;
+  }
+  #instruction {
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    opacity: 1;
+    transition: all 200ms;
+    caret: transparent;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+  }
+  #closeicon {
+   width: 27px;
+   height: 27px;
+   display: inline-block;
+   background-color: white;
+   z-index: 1;
+   pointer-events: fill;
+  }
+  #closeicon > svg {
+    pointer-events: none;
+    caret: transparent;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    pointer-events: none;
+  }
+  .inhead {
+    height: 50px;
+    background-color: blue;
+  }
+  #infoicon {
+    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin-top: -30px;
+  }
+  #calcbody {
+    width: 100%;
+    height: 100%;
+    border: 7px solid #592B2C;
+    background-color: #FF8E28;
+    color: #FFE9E4;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  }
+
+  #calcpanel {
+    width: 100%;
+    height: 100%;
+  }
+  #calcpanelout {
+    width: 90%;
+    height: 120px;
+    position: relative;
+    display: grid;
+    align-items: center;
+  }
+  #memindex {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-left: 20px;
+    color: #FF7077;
+    font-size: 8px;
+    font-family: 'Orbitron', sans-serif;
+  }
+  #display {
+    justify-self: center;
+    height: 50px;
+    border: 2px solid #592B2C;
+    width: 95%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: #FFE9E4;
+    color: #C7637E;
+    overflow: hidden!important;
+  }
+  #display > p {
+    display: inline-block;
+    margin-right: 10px;
+    height: auto;
+    width: auto;
+    font-family: 'Orbitron', sans-serif;
+  }
+  #calcpad {
+    width: 100%;
+    height: 100%;
+  }
+  #calcpadbody{
+    width: 85%;
+  }
+  .row {
+    grid-gap: 10px;
+  }
+  #calcpadbody > .row > p {
+    height: 50px;
+    width: 50px;
+    background-color: #281314;
+    color: #E1C1C4;
+    border: 2px solid #592B2C;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    width: 30px;
+  }
+  #calcpadbody > .row > p:hover {
+    background-color: #100707;
+    color: #D8AFB1;
+  }
+  #calcpadbody > .row > p:active {
+    background-color: #1C0D0D;
+    color: #EAD0D1;
+  }
+  .row > p > i {
+    caret: transparent;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    pointer-events: none;
+  }
+  #developedby {
+    font-size: 12px;
+    margin-top: 15px;
+    width: auto;
+    height: auto;
+  }
+  ul {
+    margin-left: 20px;
+    line-height: 20px;
+  }
+  #preview {
+    border: 1px solid transparent;
+  }
+}
+@media (max-width: 575px) {
+
+}
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  main > div {
+    width: auto;
+  }
+  #calcbody {
+    width: 576px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+   #infodiv {
+    position: absolute;
+    margin-top: -25px;
+  }
+  #instruction {
+    position: absolute;
+    width: 400px;
+    height: 450px;
+    margin-left: -450px;
+    background-color: white;
+    z-index: 1;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
 }
